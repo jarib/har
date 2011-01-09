@@ -25,12 +25,12 @@ module HAR
         ps.first.should be_kind_of(Page)
       end
     end
-    
+
     context "comparing" do
       it "knows when two archives are equal" do
         a = Archive.from_file fixture_path("browser-blocking-time.har")
         b = Archive.from_file fixture_path("browser-blocking-time.har")
-        
+
         a.should == b
       end
     end
@@ -64,6 +64,10 @@ module HAR
         a   = Archive.from_file fixture_path("browser-blocking-time.har")
         b   = Archive.from_file fixture_path("google.com.har")
 
+        # caching..
+        a.pages
+        a.entries
+
         a.merge!(b).should be_nil
 
         a.pages.size.should == ref.pages.size + b.pages.size
@@ -72,7 +76,7 @@ module HAR
     end
     
     context "saving" do
-      
+
     end
 
   end # Archive
