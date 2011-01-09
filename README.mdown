@@ -1,7 +1,7 @@
 HAR
 ===
 
-Ruby library to work with and view HTTP archives. Very young. Not very useful yet.
+Ruby library to work with and view HTTP archives.
 This includes [harviewer](http://code.google.com/p/harviewer/), which can be launched through the "har" command.
 
 Usage
