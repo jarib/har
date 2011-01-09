@@ -88,7 +88,7 @@ module HAR
         c = a.merge(b)
 
         c.pages.last.comment.should include("google.com.har")
-        b.pages.last.comment.should_not include("google.com.har")
+        b.pages.last.comment.should be_nil
       end
     end
 
