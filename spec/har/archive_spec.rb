@@ -11,6 +11,12 @@ module HAR
       it "can be created from a file" do
         Archive.from_file(fixture_path("browser-blocking-time.har")).should be_kind_of(Archive)
       end
+
+      it "saves the archive URI if created from a file" do
+        ar = Archive.from_file(fixture_path("browser-blocking-time.har"))
+        ar.uri.should_not be_nil
+        ar.uri.should include("browser-blocking-time.har")
+      end
     end
 
     context "fetching data" do
@@ -72,6 +78,17 @@ module HAR
 
         a.pages.size.should == ref.pages.size + b.pages.size
         a.entries.size.should == ref.entries.size + b.entries.size
+      end
+
+      it "adds a comment to pages about their origin" do
+        a = Archive.from_file fixture_path("browser-blocking-time.har")
+        b = Archive.from_file fixture_path("google.com.har")
+
+
+        c = a.merge(b)
+
+        c.pages.last.comment.should include("google.com.har")
+        b.pages.last.comment.should_not include("google.com.har")
       end
     end
 

@@ -15,6 +15,10 @@ module HAR
       @data.fetch 'title'
     end
 
+    def comment
+      @data['comment'] || ''
+    end
+
     def on_content_load
       timings.fetch 'onContentLoad'
     end

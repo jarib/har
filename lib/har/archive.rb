@@ -1,15 +1,18 @@
 module HAR
   class Archive
-    def self.from_string(str)
-      new JSON.parse(str)
+    def self.from_string(str, uri = nil)
+      new JSON.parse(str), uri
     end
 
     def self.from_file(path)
-      from_string File.read(path)
+      from_string File.read(path), path
     end
 
-    def initialize(input)
+    attr_reader :uri
+
+    def initialize(input, uri = nil)
       @input = input
+      @uri   = uri
     end
 
     def ==(other)
@@ -33,7 +36,7 @@ module HAR
       assert_archive other
 
       input = deep_clone(@input)
-      merge_data input, other.input
+      merge_data input, other.input, other.uri
 
       self.class.new input
     end
@@ -44,7 +47,7 @@ module HAR
       assert_archive other
       clear_caches
 
-      merge_data @input, other.input
+      merge_data @input, other.input, other.uri
       nil
     end
 
@@ -67,20 +70,33 @@ module HAR
     end
 
     private
-    
+
     def schema_file
       @schema_file ||= File.expand_path("../schemas/logType", __FILE__)
     end
 
-    def merge_data(left, right)
+    def merge_data(left, right, uri)
       log       = left.fetch('log')
       other_log = right.fetch('log')
 
       pages   = log.fetch('pages')
       entries = log.fetch('entries')
 
-      pages.concat other_log.fetch('pages')
-      entries.concat other_log.fetch('entries')
+      other_pages = other_log.fetch("pages")
+      other_entries = other_log.fetch("entries")
+
+      if uri
+        deep_clone(other_pages).each do |page|
+          c = page['comment'] ||= ''
+          c << "(merged from #{File.basename uri})"
+
+          pages << page
+        end
+      else
+        pages.concat other_pages
+      end
+
+      entries.concat other_entries
     end
 
     def assert_archive(other)
