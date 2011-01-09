@@ -3,26 +3,24 @@
   "description": "Response content",
   "properties": {
     "size": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "compression": {
-      "type": "integer",
-      "optional": true
+      "type": "integer"
     },
     "mimeType": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "text": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "encoding": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

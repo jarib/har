@@ -4,41 +4,43 @@
   "optional": true,
   "properties": {
     "pageref": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "startedDateTime": {
       "type": "string",
       "format": "date-time",
-      "pattern": "^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"
+      "pattern": "^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))",
+      "required": true
     },
     "time": {
       "type": "integer",
-      "min": 0
+      "min": 0,
+      "required": true
     },
     "request": {
-      "$ref": "requestType"
+      "$ref": "requestType",
+      "required": true
     },
     "response": {
-      "$ref": "responseType"
+      "$ref": "responseType",
+      "required": true
     },
     "cache": {
-      "$ref": "cacheType"
+      "$ref": "cacheType",
+      "required": true
     },
     "timings": {
-      "$ref": "timingsType"
+      "$ref": "timingsType",
+      "required": true
     },
     "serverIPAddress": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "connection": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

@@ -7,12 +7,12 @@
             "log": {
                 "type": "object",
                 "properties": {
-                    "version": {"type": "string"},
-                    "creator": {"$ref": "creatorType"},
-                    "browser": {"$ref": "browserType"},
-                    "pages": {"type": "array", "optional": true, "items": {"$ref": "pageType"}},
-                    "entries": {"type": "array", "items": {"$ref": "entryType"}},
-                    "comment": {"type": "string", "optional": true}
+                    "version": {"type": "string", "required": true},
+                    "creator": {"$ref": "creatorType", "required": true},
+                    "browser": {"$ref": "browserType", "required": true},
+                    "pages": {"type": "array", "items": {"$ref": "pageType"}},
+                    "entries": {"type": "array", "items": {"$ref": "entryType"}, "required": true},
+                    "comment": {"type": "string"}
                 }
             }
         }
@@ -22,9 +22,9 @@
         "description": "Name and version info of the log creator app.",
         "type": "object",
         "properties": {
-            "name": {"type": "string"},
-            "version": {"type": "string"},
-            "comment": {"type": "string", "optional": true}
+            "name": {"type": "string", "required": true},
+            "version": {"type": "string", "required": true},
+            "comment": {"type": "string"}
         }
     },
     "browserType": {
@@ -33,9 +33,9 @@
         "type": "object",
         "optional": true,
         "properties": {
-            "name": {"type": "string"},
-            "version": {"type": "string"},
-            "comment": {"type": "string", "optional": true}
+            "name": {"type": "string", "required": true},
+            "version": {"type": "string", "required": true},
+            "comment": {"type": "string"}
         }
     },
     "pageType": {
@@ -43,20 +43,20 @@
         "description": "Exported web page",
         "optional": true,
         "properties": {
-            "startedDateTime": {"type": "string", "format": "date-time", "pattern": "^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},
-            "id": {"type": "string", "unique": true},
-            "title": {"type": "string"},
-            "pageTimings": {"$ref": "pageTimingsType"},
-            "comment": {"type": "string", "optional": true}
+            "startedDateTime": {"type": "string", "format": "date-time", "pattern": "^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))", "required": true},
+            "id": {"type": "string", "unique": true, "required": true},
+            "title": {"type": "string", "required": true},
+            "pageTimings": {"$ref": "pageTimingsType", "required": true},
+            "comment": {"type": "string"}
         }
     },
     "pageTimingsType": {
         "id": "pageTimingsType",
         "description": "Timing info about page load",
         "properties": {
-            "onContentLoad": {"type": "number", "optional": true, "min": -1},
-            "onLoad": {"type": "number", "optional": true, "min": -1},
-            "comment": {"type": "string", "optional": true}
+            "onContentLoad": {"type": "number", "min": -1},
+            "onLoad": {"type": "number", "min": -1},
+            "comment": {"type": "string"}
         }
     },
     "entryType": {
@@ -64,71 +64,71 @@
         "description": "Request and Response related info",
         "optional": true,
         "properties": {
-            "pageref": {"type": "string", "optional": true},
-            "startedDateTime": {"type": "string", "format": "date-time", "pattern": "^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))"},
-            "time": {"type": "integer", "min": 0},
-            "request" : {"$ref": "requestType"},
-            "response" : {"$ref": "responseType"},
-            "cache" : {"$ref": "cacheType"},
-            "timings" : {"$ref": "timingsType"},
-            "serverIPAddress" : {"type": "string", "optional": true},
-            "connection" : {"type": "string", "optional": true},
-            "comment": {"type": "string", "optional": true}
+            "pageref": {"type": "string"},
+            "startedDateTime": {"type": "string", "format": "date-time", "pattern": "^(\\d{4})(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z|([+-])(\\d\\d)(:)?(\\d\\d))", "required": true},
+            "time": {"type": "integer", "min": 0, "required": true},
+            "request" : {"$ref": "requestType", "required": true},
+            "response" : {"$ref": "responseType", "required": true},
+            "cache" : {"$ref": "cacheType", "required": true},
+            "timings" : {"$ref": "timingsType", "required": true},
+            "serverIPAddress" : {"type": "string"},
+            "connection" : {"type": "string"},
+            "comment": {"type": "string"}
         }
     },
     "requestType": {
         "id": "requestType",
         "description": "Monitored request",
         "properties": {
-            "method": {"type": "string"},
-            "url": {"type": "string"},
-            "httpVersion": {"type" : "string"},
-            "cookies" : {"type": "array", "items": {"$ref": "cookieType"}},
-            "headers" : {"type": "array", "items": {"$ref": "recordType"}},
-            "queryString" : {"type": "array", "items": {"$ref": "recordType"}},
+            "method": {"type": "string", "required": true},
+            "url": {"type": "string", "required": true},
+            "httpVersion": {"type" : "string", "required": true},
+            "cookies" : {"type": "array", "items": {"$ref": "cookieType"}, "required": true},
+            "headers" : {"type": "array", "items": {"$ref": "recordType"}, "required": true},
+            "queryString" : {"type": "array", "items": {"$ref": "recordType"}, "required": true},
             "postData" : {"$ref": "postDataType"},
-            "headersSize" : {"type": "integer"},
-            "bodySize" : {"type": "integer"},
-            "comment": {"type": "string", "optional": true}
+            "headersSize" : {"type": "integer", "required": true},
+            "bodySize" : {"type": "integer", "required": true},
+            "comment": {"type": "string"}
         }
     },
     "recordType": {
         "id": "recordType",
         "description": "Helper name-value pair structure.",
         "properties": {
-            "name": {"type": "string"},
-            "value": {"type": "string"},
-            "comment": {"type": "string", "optional": true}
+            "name": {"type": "string", "required": true},
+            "value": {"type": "string", "required": true},
+            "comment": {"type": "string"}
         }
     },
     "responseType": {
         "id": "responseType",
         "description": "Monitored Response.",
         "properties": {
-            "status": {"type": "integer"},
-            "statusText": {"type": "string"},
-            "httpVersion": {"type": "string"},
-            "cookies" : {"type": "array", "items": {"$ref": "cookieType"}},
-            "headers" : {"type": "array", "items": {"$ref": "recordType"}},
-            "content" : {"$ref": "contentType"},
-            "redirectURL" : {"type": "string"},
-            "headersSize" : {"type": "integer"},
-            "bodySize" : {"type": "integer"},
-            "comment": {"type": "string", "optional": true}
+            "status": {"type": "integer", "required": true},
+            "statusText": {"type": "string", "required": true},
+            "httpVersion": {"type": "string", "required": true},
+            "cookies" : {"type": "array", "items": {"$ref": "cookieType"}, "required": true},
+            "headers" : {"type": "array", "items": {"$ref": "recordType"}, "required": true},
+            "content" : {"$ref": "contentType", "required": true},
+            "redirectURL" : {"type": "string", "required": true},
+            "headersSize" : {"type": "integer", "required": true},
+            "bodySize" : {"type": "integer", "required": true},
+            "comment": {"type": "string"}
         }
     },
     "cookieType": {
         "id": "cookieType",
         "description": "Cookie description.",
         "properties": {
-            "name": {"type": "string"},
-            "value": {"type": "string"},
-            "path": {"type": "string", "optional": true},
-            "domain" : {"type": "string", "optional": true},
-            "expires" : {"type": "string", "optional": true},
-            "httpOnly" : {"type": "boolean", "optional": true},
-            "secure" : {"type": "boolean", "optional": true},
-            "comment": {"type": "string", "optional": true}
+            "name": {"type": "string", "required": true},
+            "value": {"type": "string", "required": true},
+            "path": {"type": "string"},
+            "domain" : {"type": "string"},
+            "expires" : {"type": "string"},
+            "httpOnly" : {"type": "boolean"},
+            "secure" : {"type": "boolean"},
+            "comment": {"type": "string"}
         }
     },
     "postDataType": {
@@ -136,32 +136,31 @@
         "description": "Posted data info.",
         "optional": true,
         "properties": {
-            "mimeType": {"type": "string"},
-            "text": {"type": "string", "optional": true},
+            "mimeType": {"type": "string", "required": true},
+            "text": {"type": "string"},
             "params": {
                 "type": "array",
-                "optional": true,
                 "properties": {
-                    "name": {"type": "string"},
-                    "value": {"type": "string", "optional": true},
-                    "fileName": {"type": "string", "optional": true},
-                    "contentType": {"type": "string", "optional": true},
-                    "comment": {"type": "string", "optional": true}
+                    "name": {"type": "string", "required": true},
+                    "value": {"type": "string"},
+                    "fileName": {"type": "string"},
+                    "contentType": {"type": "string"},
+                    "comment": {"type": "string"}
                 }
             },
-            "comment": {"type": "string", "optional": true}
+            "comment": {"type": "string"}
         }
     },
     "contentType": {
         "id": "contentType",
         "description": "Response content",
         "properties": {
-            "size": {"type": "integer"},
-            "compression": {"type": "integer", "optional": true},
-            "mimeType": {"type": "string"},
-            "text": {"type": "string", "optional": true},
-            "encoding": {"type": "string", "optional": true},
-            "comment": {"type": "string", "optional": true}
+            "size": {"type": "integer", "required": true},
+            "compression": {"type": "integer"},
+            "mimeType": {"type": "string", "required": true},
+            "text": {"type": "string"},
+            "encoding": {"type": "string"},
+            "comment": {"type": "string"}
         }
     },
     "cacheType": {
@@ -170,7 +169,7 @@
         "properties": {
             "beforeRequest": {"$ref": "cacheEntryType"},
             "afterRequest": {"$ref": "cacheEntryType"},
-            "comment": {"type": "string", "optional": true}
+            "comment": {"type": "string"}
         }
     },
     "cacheEntryType": {
@@ -178,25 +177,25 @@
         "optional": true,
         "description": "Info about cache entry.",
         "properties": {
-            "expires": {"type": "string", "optional": "true"},
-            "lastAccess": {"type": "string"},
-            "eTag": {"type": "string"},
-            "hitCount": {"type": "integer"},
-            "comment": {"type": "string", "optional": true}
+            "expires": {"type": "string"},
+            "lastAccess": {"type": "string", "required": true},
+            "eTag": {"type": "string", "required": true},
+            "hitCount": {"type": "integer", "required": true},
+            "comment": {"type": "string"}
         }
     },
     "timingsType": {
         "id": "timingsType",
         "description": "Info about request-response timing.",
         "properties": {
-            "dns": {"type": "integer", "min": -1},
-            "connect": {"type": "integer", "min": -1},
-            "blocked": {"type": "integer", "min": -1},
-            "send": {"type": "integer", "min": -1},
-            "wait": {"type": "integer", "min": -1},
-            "receive": {"type": "integer", "min": -1},
-            "ssl": {"type": "integer", "optional": true, "min": -1},
-            "comment": {"type": "string", "optional": true}
+            "dns": {"type": "integer", "min": -1, "required": true},
+            "connect": {"type": "integer", "min": -1, "required": true},
+            "blocked": {"type": "integer", "min": -1, "required": true},
+            "send": {"type": "integer", "min": -1, "required": true},
+            "wait": {"type": "integer", "min": -1, "required": true},
+            "receive": {"type": "integer", "min": -1, "required": true},
+            "ssl": {"type": "integer", "min": -1},
+            "comment": {"type": "string"}
         }
     }
 }

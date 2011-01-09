@@ -7,17 +7,19 @@
       "type": "object",
       "properties": {
         "version": {
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         "creator": {
-          "$ref": "creatorType"
+          "$ref": "creatorType",
+          "required": true
         },
         "browser": {
-          "$ref": "browserType"
+          "$ref": "browserType",
+          "required": true
         },
         "pages": {
           "type": "array",
-          "optional": true,
           "items": {
             "$ref": "pageType"
           }
@@ -26,11 +28,11 @@
           "type": "array",
           "items": {
             "$ref": "entryType"
-          }
+          },
+          "required": true
         },
         "comment": {
-          "type": "string",
-          "optional": true
+          "type": "string"
         }
       }
     }

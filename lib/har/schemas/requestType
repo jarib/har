@@ -3,44 +3,51 @@
   "description": "Monitored request",
   "properties": {
     "method": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "httpVersion": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "cookies": {
       "type": "array",
       "items": {
         "$ref": "cookieType"
-      }
+      },
+      "required": true
     },
     "headers": {
       "type": "array",
       "items": {
         "$ref": "recordType"
-      }
+      },
+      "required": true
     },
     "queryString": {
       "type": "array",
       "items": {
         "$ref": "recordType"
-      }
+      },
+      "required": true
     },
     "postData": {
       "$ref": "postDataType"
     },
     "headersSize": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "bodySize": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

@@ -9,8 +9,7 @@
       "$ref": "cacheEntryType"
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

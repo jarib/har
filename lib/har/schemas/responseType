@@ -3,41 +3,49 @@
   "description": "Monitored Response.",
   "properties": {
     "status": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "statusText": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "httpVersion": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "cookies": {
       "type": "array",
       "items": {
         "$ref": "cookieType"
-      }
+      },
+      "required": true
     },
     "headers": {
       "type": "array",
       "items": {
         "$ref": "recordType"
-      }
+      },
+      "required": true
     },
     "content": {
-      "$ref": "contentType"
+      "$ref": "contentType",
+      "required": true
     },
     "redirectURL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "headersSize": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "bodySize": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

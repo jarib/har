@@ -4,17 +4,14 @@
   "properties": {
     "onContentLoad": {
       "type": "number",
-      "optional": true,
       "min": -1
     },
     "onLoad": {
       "type": "number",
-      "optional": true,
       "min": -1
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

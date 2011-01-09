@@ -5,14 +5,15 @@
   "optional": true,
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "version": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

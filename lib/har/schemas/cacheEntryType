@@ -4,21 +4,22 @@
   "description": "Info about cache entry.",
   "properties": {
     "expires": {
-      "type": "string",
-      "optional": "true"
+      "type": "string"
     },
     "lastAccess": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "eTag": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "hitCount": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

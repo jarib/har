@@ -3,14 +3,15 @@
   "description": "Helper name-value pair structure.",
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "value": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

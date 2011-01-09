@@ -4,40 +4,35 @@
   "optional": true,
   "properties": {
     "mimeType": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "text": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "params": {
       "type": "array",
-      "optional": true,
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         "value": {
-          "type": "string",
-          "optional": true
+          "type": "string"
         },
         "fileName": {
-          "type": "string",
-          "optional": true
+          "type": "string"
         },
         "contentType": {
-          "type": "string",
-          "optional": true
+          "type": "string"
         },
         "comment": {
-          "type": "string",
-          "optional": true
+          "type": "string"
         }
       }
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }

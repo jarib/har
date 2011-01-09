@@ -3,34 +3,30 @@
   "description": "Cookie description.",
   "properties": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "value": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "path": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "domain": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "expires": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     },
     "httpOnly": {
-      "type": "boolean",
-      "optional": true
+      "type": "boolean"
     },
     "secure": {
-      "type": "boolean",
-      "optional": true
+      "type": "boolean"
     },
     "comment": {
-      "type": "string",
-      "optional": true
+      "type": "string"
     }
   }
 }
