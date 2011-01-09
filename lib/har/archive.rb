@@ -48,6 +48,10 @@ module HAR
       nil
     end
 
+    def save_to(path)
+      File.open(path, "w") { |io| io << @input.to_json }
+    end
+
     protected
 
     def input

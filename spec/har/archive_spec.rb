@@ -74,9 +74,18 @@ module HAR
         a.entries.size.should == ref.entries.size + b.entries.size
       end
     end
-    
-    context "saving" do
 
+    context "saving" do
+      it "writes the archive to disk" do
+        json = '{"log":{}}'
+        ar   = Archive.from_string json
+        out  = StringIO.new
+
+        File.should_receive(:open).with("some.har", "w").and_yield(out)
+
+        ar.save_to "some.har"
+        out.string.should == json
+      end
     end
 
   end # Archive
