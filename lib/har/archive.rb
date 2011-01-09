@@ -11,6 +11,12 @@ module HAR
     def initialize(input)
       @input = input
     end
+    
+    def ==(other)
+      other.kind_of?(self.class) && @input == other.input
+    end
+    alias_method :eql?, :==
+    
 
     def pages
       @pages ||= raw_log.fetch('pages').map { |page|
