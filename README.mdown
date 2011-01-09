@@ -14,16 +14,10 @@ Or from command the command line:
 
     har /path/to/some.har
 
-
 Links
 =====
 
 * [harviewer](http://code.google.com/p/harviewer/)
-
-Todo
-====
-
-Validate against HAR schema instead of simply raising {Index,Key}Error.
 
 Note on Patches/Pull Requests
 =============================
