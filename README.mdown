@@ -7,12 +7,12 @@ Usage
 =====
 
     HAR::Archive.from_string(json) #=> #<Har::Archive:0x5e7cac>
-    HAR::Archive.from_file(json)   #=> #<Har::Archive:0x5e7cac>
+    HAR::Archive.from_file(path)   #=> #<Har::Archive:0x5e7cac>
 
 Links
 =====
 
-* http://code.google.com/p/harviewer/
+* [harviewer](http://code.google.com/p/harviewer/)
 
 Todo
 ====
