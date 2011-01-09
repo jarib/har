@@ -76,7 +76,8 @@ module HAR
     end
 
     context "validating" do
-      let(:valid) { Archive.from_file fixture_path("browser-blocking-time.har") }
+      let(:valid)   { Archive.from_file fixture_path("browser-blocking-time.har") }
+      let(:invalid) { Archive.from_file fixture_path("bad.har") }
 
       it "returns true if the archive is valid" do
         valid.should be_valid
@@ -84,6 +85,14 @@ module HAR
 
       it "returns nil if the archive is valid" do
         valid.validate!.should be_nil
+      end
+
+      it "returns false if the archive is invalid" do
+        invalid.should_not be_valid
+      end
+
+      it "raises an error if the archive is invalid" do
+        lambda { invalid.validate! }.should raise_error(JSON::ValidationError)
       end
     end
 
