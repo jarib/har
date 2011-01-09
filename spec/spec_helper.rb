@@ -8,7 +8,7 @@ module HAR
     end
 
     def har_path(name)
-      fixture_path File.join("hars", name)
+      fixture_path File.join("hars", "#{name}.har")
     end
 
     def json(path)
@@ -17,6 +17,10 @@ module HAR
 
     def all_hars
       Dir[fixture_path("hars/*.har")]
+    end
+
+    def google_path
+      har_path "google.com"
     end
 
     def good_hars

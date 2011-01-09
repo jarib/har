@@ -12,5 +12,8 @@ module HAR
       @data.fetch 'title'
     end
 
+    # a little sugar
+    alias_method :timings, :page_timings
+
   end
 end
