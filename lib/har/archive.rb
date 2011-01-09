@@ -48,7 +48,20 @@ module HAR
       nil
     end
 
+    def valid?
+      JSON::Validator.validate schema_file, @input
+    end
+
+    def validate!
+      JSON::Validator.validate2 schema_file, @input
+    end
+
     protected
+
+    def schema_file
+      @schema_file ||= File.expand_path("../schemas/logType.json", __FILE__)
+    end
+
 
     def input
       @input

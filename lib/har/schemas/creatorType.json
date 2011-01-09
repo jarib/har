@@ -1,0 +1,17 @@
+{
+  "id": "creatorType",
+  "description": "Name and version info of the log creator app.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

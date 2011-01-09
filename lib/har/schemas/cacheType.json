@@ -1,0 +1,16 @@
+{
+  "id": "cacheType",
+  "description": "Info about a response coming from the cache.",
+  "properties": {
+    "beforeRequest": {
+      "$ref": "cacheEntryType"
+    },
+    "afterRequest": {
+      "$ref": "cacheEntryType"
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

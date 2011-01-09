@@ -1,0 +1,28 @@
+{
+  "id": "contentType",
+  "description": "Response content",
+  "properties": {
+    "size": {
+      "type": "integer"
+    },
+    "compression": {
+      "type": "integer",
+      "optional": true
+    },
+    "mimeType": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "optional": true
+    },
+    "encoding": {
+      "type": "string",
+      "optional": true
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

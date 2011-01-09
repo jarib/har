@@ -74,7 +74,19 @@ module HAR
         a.entries.size.should == ref.entries.size + b.entries.size
       end
     end
-    
+
+    context "validating" do
+      let(:valid) { Archive.from_file fixture_path("browser-blocking-time.har") }
+
+      it "returns true if the archive is valid" do
+        valid.should be_valid
+      end
+
+      it "returns nil if the archive is valid" do
+        valid.validate!.should be_nil
+      end
+    end
+
     context "saving" do
 
     end

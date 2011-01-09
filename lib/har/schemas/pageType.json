@@ -1,0 +1,26 @@
+{
+  "id": "pageType",
+  "description": "Exported web page",
+  "optional": true,
+  "properties": {
+    "startedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(d{4})(-)?(dd)(-)?(dd)(T)?(dd)(:)?(dd)(:)?(dd)(.d+)?(Z|([+-])(dd)(:)?(dd))"
+    },
+    "id": {
+      "type": "string",
+      "unique": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "pageTimings": {
+      "$ref": "pageTimingsType"
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

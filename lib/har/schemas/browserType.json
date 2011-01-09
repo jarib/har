@@ -1,0 +1,18 @@
+{
+  "id": "browserType",
+  "description": "Name and version info of used browser.",
+  "type": "object",
+  "optional": true,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

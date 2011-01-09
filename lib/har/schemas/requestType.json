@@ -1,0 +1,46 @@
+{
+  "id": "requestType",
+  "description": "Monitored request",
+  "properties": {
+    "method": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "httpVersion": {
+      "type": "string"
+    },
+    "cookies": {
+      "type": "array",
+      "items": {
+        "$ref": "cookieType"
+      }
+    },
+    "headers": {
+      "type": "array",
+      "items": {
+        "$ref": "recordType"
+      }
+    },
+    "queryString": {
+      "type": "array",
+      "items": {
+        "$ref": "recordType"
+      }
+    },
+    "postData": {
+      "$ref": "postDataType"
+    },
+    "headersSize": {
+      "type": "integer"
+    },
+    "bodySize": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

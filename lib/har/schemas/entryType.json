@@ -1,0 +1,44 @@
+{
+  "id": "entryType",
+  "description": "Request and Response related info",
+  "optional": true,
+  "properties": {
+    "pageref": {
+      "type": "string",
+      "optional": true
+    },
+    "startedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(d{4})(-)?(dd)(-)?(dd)(T)?(dd)(:)?(dd)(:)?(dd)(.d+)?(Z|([+-])(dd)(:)?(dd))"
+    },
+    "time": {
+      "type": "integer",
+      "min": 0
+    },
+    "request": {
+      "$ref": "requestType"
+    },
+    "response": {
+      "$ref": "responseType"
+    },
+    "cache": {
+      "$ref": "cacheType"
+    },
+    "timings": {
+      "$ref": "timingsType"
+    },
+    "serverIPAddress": {
+      "type": "string",
+      "optional": true
+    },
+    "connection": {
+      "type": "string",
+      "optional": true
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

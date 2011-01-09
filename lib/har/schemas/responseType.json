@@ -1,0 +1,43 @@
+{
+  "id": "responseType",
+  "description": "Monitored Response.",
+  "properties": {
+    "status": {
+      "type": "integer"
+    },
+    "statusText": {
+      "type": "string"
+    },
+    "httpVersion": {
+      "type": "string"
+    },
+    "cookies": {
+      "type": "array",
+      "items": {
+        "$ref": "cookieType"
+      }
+    },
+    "headers": {
+      "type": "array",
+      "items": {
+        "$ref": "recordType"
+      }
+    },
+    "content": {
+      "$ref": "contentType"
+    },
+    "redirectURL": {
+      "type": "string"
+    },
+    "headersSize": {
+      "type": "integer"
+    },
+    "bodySize": {
+      "type": "integer"
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}

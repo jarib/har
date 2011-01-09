@@ -1,0 +1,36 @@
+{
+  "id": "cookieType",
+  "description": "Cookie description.",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string",
+      "optional": true
+    },
+    "domain": {
+      "type": "string",
+      "optional": true
+    },
+    "expires": {
+      "type": "string",
+      "optional": true
+    },
+    "httpOnly": {
+      "type": "boolean",
+      "optional": true
+    },
+    "secure": {
+      "type": "boolean",
+      "optional": true
+    },
+    "comment": {
+      "type": "string",
+      "optional": true
+    }
+  }
+}
