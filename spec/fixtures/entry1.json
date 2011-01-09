@@ -1,0 +1,124 @@
+{
+  "pageref": "page_62143",
+  "startedDateTime": "2010-01-02T14:51:01.186+01:00",
+  "time": 63,
+  "request": {
+    "method": "GET",
+    "url": "http://www.google.cz/",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [
+      {
+        "name": "PREF",
+        "value": "ID"
+      },
+      {
+        "name": "NID",
+        "value": "29"
+      }
+    ],
+    "headers": [
+      {
+        "name": "Host",
+        "value": "www.google.cz"
+      },
+      {
+        "name": "User-Agent",
+        "value": "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2b6pre) Gecko/20091230 Namoroka/3.6b6pre (.NET CLR 3.5.30729)"
+      },
+      {
+        "name": "Accept",
+        "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+      },
+      {
+        "name": "Accept-Language",
+        "value": "en-us,en;q=0.5"
+      },
+      {
+        "name": "Accept-Encoding",
+        "value": "gzip,deflate"
+      },
+      {
+        "name": "Accept-Charset",
+        "value": "ISO-8859-1,utf-8;q=0.7,*;q=0.7"
+      },
+      {
+        "name": "Keep-Alive",
+        "value": "115"
+      },
+      {
+        "name": "Connection",
+        "value": "keep-alive"
+      },
+      {
+        "name": "Cookie",
+        "value": "PREF=ID=580ec4c5a3534337:U=37a8fcc41ff49f78:TM=1260796678:LM=1260796682:S=9BgbomVM6pcnfah0; NID=29=OHyg2zMZl4IpG8C4a-Z5itM3gCXOuBPogGpTPVFPNsdpmIHJWX78ymRL_gqptvhr_IQrP319GQ1fxlKUsqaIokpxasPIIDq5ijatDmYiyamnCfJz8rXyNvt5GPjCJp2I"
+      }
+    ],
+    "queryString": [
+
+    ],
+    "headersSize": 632,
+    "bodySize": -1
+  },
+  "response": {
+    "status": 200,
+    "statusText": "OK",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [
+
+    ],
+    "headers": [
+      {
+        "name": "Date",
+        "value": "Sat, 02 Jan 2010 13:51:06 GMT"
+      },
+      {
+        "name": "Expires",
+        "value": "-1"
+      },
+      {
+        "name": "Cache-Control",
+        "value": "private, max-age=0"
+      },
+      {
+        "name": "Content-Type",
+        "value": "text/html; charset=UTF-8"
+      },
+      {
+        "name": "Content-Encoding",
+        "value": "gzip"
+      },
+      {
+        "name": "Server",
+        "value": "gws"
+      },
+      {
+        "name": "Content-Length",
+        "value": "3694"
+      },
+      {
+        "name": "X-XSS-Protection",
+        "value": "0"
+      }
+    ],
+    "content": {
+      "size": 8564,
+      "mimeType": "text/html",
+      "text": "<!doctype html><html onmousemove=\"google&&google.fade&&google.fade()\"><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"><title>Google</title><script>window.google={kEI:\"Sk8_S5PhGNT4_AbC2-HhBQ\",kEXPI:\"17259,18167,23129\",kCSI:{e:\"17259,18167,23129\",ei:\"Sk8_S5PhGNT4_AbC2-HhBQ\"},kHL:\"cs\",time:function(){return(new Date).getTime()},log:function(b,d,c){var a=new Image,e=google,g=e.lc,f=e.li;a.onerror=(a.onload=(a.onabort=function(){delete g[f]}));g[f]=a;c=c||\"/gen_204?atyp=i&ct=\"+b+\"&cad=\"+d+\"&zx=\"+google.time();a.src=c;e.li=f+1},lc:[],li:0};\nwindow.google.sn=\"webhp\";window.google.timers={load:{t:{start:(new Date).getTime()}}};try{}catch(u){}window.google.jsrt_kill=1;\nvar _gjwl=location;function _gjuc(){var e=_gjwl.href.indexOf(\"#\");if(e>=0){var a=_gjwl.href.substring(e);if(a.indexOf(\"&q=\")>0||a.indexOf(\"#q=\")>=0){a=a.substring(1);if(a.indexOf(\"#\")==-1){for(var c=0;c<a.length;){var d=c;if(a.charAt(d)==\"&\")++d;var b=a.indexOf(\"&\",d);if(b==-1)b=a.length;var f=a.substring(d,b);if(f.indexOf(\"fp=\")==0){a=a.substring(0,c)+a.substring(b,a.length);b=c}else if(f==\"cad=h\")return 0;c=b}_gjwl.href=\"/search?\"+a+\"&cad=h\";return 1}}}return 0}function _gjp(){!(window._gjwl.hash&&\nwindow._gjuc())&&setTimeout(_gjp,500)};\nwindow._gjp && _gjp()</script><style>td{line-height:.8em;}.gac_m td{line-height:17px;}form{margin-bottom:20px;}body,td,a,p,.h{font-family:arial,sans-serif}.h{color:#36c;font-size:20px}.q{color:#00c}.ts td{padding:0}.ts{border-collapse:collapse}em{font-weight:bold;font-style:normal}.lst{font:17px arial,sans-serif;margin-bottom:.2em;vertical-align:bottom;}input{font-family:inherit}.lsb,.gac_sb{font-size:15px;height:1.85em!important;margin:.2em;}#fctr,#ghead,#pmocntr,#sbl,#tba,#tbe,.fade{opacity:0;}#fctr,#ghead,#pmocntr,#sbl,#tba,#tbe,.fade{background:#fff;}#gbar{float:left;height:22px}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px}.gbh{height:0;position:absolute;top:24px;width:100%}#gbs,.gbm{background:#fff;left:0;position:absolute;text-align:left;visibility:hidden;z-index:1000}.gbm{border:1px solid;border-color:#c9d7f1 #36c #36c #a2bae7;z-index:1001}#guser{padding-bottom:7px !important;text-align:right}#gbar,#guser{font-size:13px;padding-top:1px !important}.gb1,.gb3,.gb3i,.gb3f{zoom:1;margin-right:.5em}.gb2,.gb2i,.gb2f{display:block;padding:.2em .5em}a.gb1,a.gb2,a.gb3,a.gb4{color:#00c !important}.gb2,.gb2i,.gb2f,.gb3,.gb3i,.gb3f{text-decoration:none}a.gb2:hover{background:#36c;color:#fff !important}</style><noscript><style>#fctr,#ghead,#pmocntr,#sbl,#tba,#tbe,.fade{opacity:1;}</style></noscript><script>google.y={};google.x=function(e,g){google.y[e.id]=[e,g];return false};window.gbar={qs:function(){},tg:function(e){var o={id:'gbar'};for(i in e)o[i]=e[i];google.x(o,function(){gbar.tg(o)})}};</script></head><body bgcolor=#ffffff text=#000000 link=#0000cc vlink=#551a8b alink=#ff0000 onload=\"document.f.q.focus();if(document.images)new Image().src='/images/nav_logo7.png'\" topmargin=3 marginheight=3><textarea id=csi style=display:none></textarea><div id=ghead><div id=gbar><nobr><b class=gb1>Web</b> <a href=\"http://images.google.cz/imghp?hl=cs&tab=wi\" onclick=gbar.qs(this) class=gb1>Obrázky</a> <a href=\"http://video.google.cz/?hl=cs&tab=wv\" onclick=gbar.qs(this) class=gb1>Videa</a> <a href=\"http://maps.google.cz/maps?hl=cs&tab=wl\" onclick=gbar.qs(this) class=gb1>Mapy</a> <a href=\"http://news.google.cz/nwshp?hl=cs&tab=wn\" onclick=gbar.qs(this) class=gb1>Zprávy</a> <a href=\"http://translate.google.cz/?hl=cs&tab=wT\" onclick=gbar.qs(this) class=gb1>Překladač</a> <a href=\"http://mail.google.com/mail/?hl=cs&tab=wm\" class=gb1>Gmail</a> <a href=\"http://www.google.cz/intl/cs/options/\" onclick=\"this.blur();gbar.tg(event);return !1\" aria-haspopup=true class=gb3><u>další</u> <small>&#9660;</small></a><div class=gbm id=gbi><a href=\"http://blogsearch.google.cz/?hl=cs&tab=wb\" onclick=gbar.qs(this) class=gb2>Blogy</a> <a href=\"http://www.youtube.com/?hl=cs&tab=w1&gl=CZ\" onclick=gbar.qs(this) class=gb2>YouTube</a> <a href=\"http://www.google.com/calendar/render?hl=cs&tab=wc\" class=gb2>Kalendář</a> <a href=\"http://picasaweb.google.cz/home?hl=cs&tab=wq\" onclick=gbar.qs(this) class=gb2>Fotografie</a> <a href=\"http://docs.google.com/?hl=cs&tab=wo\" class=gb2>Dokumenty</a> <a href=\"http://www.google.cz/reader/view/?hl=cs&tab=wy\" class=gb2>Reader</a> <a href=\"http://sites.google.com/?hl=cs&tab=w3\" class=gb2>Weby</a> <a href=\"http://groups.google.cz/grphp?hl=cs&tab=wg\" onclick=gbar.qs(this) class=gb2>Skupiny</a> <div class=gb2><div class=gbd></div></div><a href=\"http://www.google.cz/intl/cs/options/\" class=gb2>dále také &raquo;</a> </div></nobr></div><div id=guser width=100%><nobr><a href=\"/url?sa=p&pref=ig&pval=3&q=http://www.google.cz/ig%3Fhl%3Dcs%26source%3Diglk&usg=AFQjCNEjIy3HcIoHHp-ysNPPMy6WitPxSg\" class=gb4>iGoogle</a> | <a href=\"/preferences?hl=cs\" class=gb4>Nastavení vyhledávání</a> | <a href=\"https://www.google.com/accounts/Login?hl=cs&continue=http://www.google.cz/\" class=gb4>Přihlásit se</a></nobr></div><div class=gbh style=left:0></div><div class=gbh style=right:0></div></div> <center><br clear=all id=lgpd><div align=left style=\"background:url(/intl/en_com/images/logo_plain.png) no-repeat;height:110px;width:276px\" title=\"Google\" id=logo onload=\"window.lol&&lol()\"><div nowrap style=\"color:#666;font-size:16px;font-weight:bold;left:208px;position:relative;top:78px\">Česká republika</div></div><br><form action=\"/search\" name=f><table cellpadding=0 cellspacing=0><tr valign=top><td width=25%>&nbsp;</td><td align=center nowrap><input name=hl type=hidden value=cs><input name=source type=hidden value=hp><input autocomplete=\"off\" onblur=\"google&&google.fade&&google.fade()\" maxlength=2048 name=q size=55 class=lst title=\"Vyhledat Googlem\" value=\"\"><br><input name=btnG type=submit value=\"Vyhledat Googlem\" class=lsb><input name=btnI type=submit value=\"Zkusím štěstí\" class=lsb></td><td nowrap width=25% align=left id=sbl><font size=-2>&nbsp;&nbsp;<a href=/advanced_search?hl=cs>Rozšířené vyhledávání</a><br>&nbsp;&nbsp;<a href=/language_tools?hl=cs>Jazykové nástroje</a></font></td></tr><tr><td align=center colspan=3><font size=-1><span style=\"text-align:left\" class=fade><input id=all type=radio name=lr value=\"\" checked><label for=all> Prohledat Web </label> <input id=il type=radio name=lr value=\"lang_cs\"><label for=il> Stránky pouze česky </label> </span></font></td></tr></table></form><br><span id=footer><center id=fctr><br><font size=-1><a href=\"/intl/cs/ads/\">Inzerujte s Googlem</a> - <a href=\"/intl/cs/about.html\">Vše o Google</a> - <a href=\"http://www.google.com/ncr\">Google.com in English</a></font><p><font size=-2>&copy;2010 - <a href=\"/intl/cs/privacy.html\">Osobní údaje</a></font></p></center></span> <div id=xjsd></div><div id=xjsi><script>if(google.y)google.y.first=[];if(google.y)google.y.first=[];google.dstr=[];google.rein=[];window.setTimeout(function(){var a=document.createElement(\"script\");a.src=\"/extern_js/f/CgJjcxICY3orMAo4QUAdLCswDjgKLCswFjgULCswFzgELCswGDgELCswGTgNLCswJTjJiAEsKzAmOAgsKzAnOAIsKzA8OAEsKzBFOAAs/n26cL0r9CnM.js\";(document.getElementById(\"xjsd\")||document.body).appendChild(a);if(google.timers&&google.timers.load.t)google.timers.load.t.xjsls=(new Date).getTime();},0);\n;google.y.first.push(function(){google.ac.b=true;google.ac.i(document.f,document.f.q,'','');(function(){\nvar a=window.google.f={};a.f=1;a.s=1;a.a=(new Date).getTime();function m(b,g,e,f){var d,c=[],i=[];for(var h=0,k;k=b[h++];){var l=document.getElementById(k);if(l)c.push(l)}for(var h=0,j;j=g[h++];){var o=n(j[0],j[1]);while(d=o.pop())c.push(d)}while(d=c.pop())i.push([d,\"opacity\",e,f,0,\"\"]);return i}function n(b,\ng){var e=[];for(var f=document.getElementsByTagName(b),d=0,c=f[d];c=f[d++];)if(c.className==g)e.push(c);return e}google.fade=function(b){b=b||window.event;var g=1;if(b&&b.type==\"mousemove\"){var e=b.clientX,f=b.clientY;g=a.x||a.y?Math.abs(a.x-e)+Math.abs(a.y-f):0;a.x=e;a.y=f}var d=(new Date).getTime(),c=d-a.a;if(google.fx&&g&&c>602)if(a.f){a.f=0;var i=[\"fctr\",\"ghead\",\n\"pmocntr\",\"sbl\",\"tba\",\"tbe\"],h=[[\"span\",\"fade\"],[\"div\",\"gbh\"]];google.fx.animate(602,m(i,h,0,1))}};\n})();\n});if(google.j&&google.j.en&&google.j.xi){window.setTimeout(google.j.xi,0);google.fade=null;}</script></div><script>(function(){\nfunction a(){google.timers.load.t.ol=(new Date).getTime();google.report&&google.timers.load.t.xjs&&google.report(google.timers.load,google.kCSI)}if(window.addEventListener)window.addEventListener(\"load\",a,false);else if(window.attachEvent)window.attachEvent(\"onload\",a);google.timers.load.t.prt=(new Date).getTime();\n})();\n</script>"
+    },
+    "redirectURL": "",
+    "headersSize": 224,
+    "bodySize": 3694
+  },
+  "cache": {
+
+  },
+  "timings": {
+    "dns": 0,
+    "connect": 0,
+    "blocked": 0,
+    "send": 0,
+    "wait": 63,
+    "receive": 0
+  }
+}

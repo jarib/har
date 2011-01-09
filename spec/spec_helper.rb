@@ -7,6 +7,14 @@ module HAR
       File.join(File.expand_path("../fixtures", __FILE__), name)
     end
 
+    def har_path(name)
+      fixture_path File.join("hars", name)
+    end
+
+    def json(path)
+      JSON.parse(File.read(path))
+    end
+
     def all_hars
       Dir[fixture_path("*.har")]
     end

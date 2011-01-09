@@ -1,7 +1,14 @@
 module HAR
   class Entry
+    include Serializable
+    include Commentable
+
     def initialize(data)
       @data = data
+    end
+
+    def pageref
+      @data['pageref']
     end
 
     def start_time
@@ -12,55 +19,31 @@ module HAR
       @data.fetch 'time'
     end
 
-    def method
-      request.fetch 'method'
-    end
-
-    def url
-      request.fetch 'url'
-    end
-
-    def request_headers_size
-      request.fetch 'headersSize'
-    end
-
-    def request_body_size
-      request.fetch 'bodySize'
-    end
-
-    def status
-      response.fetch 'status'
-    end
-
-    def status_text
-      response.fetch 'statusText'
-    end
-
-    def response_headers_size
-      response.fetch 'headersSize'
-    end
-
-    def response_body_size
-      response.fetch 'bodySize'
-    end
-
-    def mime_type
-      content.fetch 'mimeType'
-    end
-
-    def content_size
-      content.fetch 'size'
-    end
-
-    private
-
     def request
-      @data.fetch 'request'
+      @request ||= Request.new @data.fetch('request')
     end
 
     def response
-      @data.fetch 'response'
+      @response ||= Response.new @data.fetch('response')
     end
+
+    def cache
+      raise NotImplementedError
+    end
+
+    def timings
+      raise NotImplementedError
+    end
+
+    def server_ip_address
+      @data['serverIPAddress']
+    end
+
+    def connection
+      @data['connection']
+    end
+
+    private
 
     def timings
       @data.fetch 'timings'
@@ -69,5 +52,6 @@ module HAR
     def content
       response.fetch('content')
     end
+
   end # Entry
 end # Archive

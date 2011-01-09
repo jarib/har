@@ -1,5 +1,7 @@
 module HAR
   class Archive
+    include Serializable
+
     def self.from_string(str, uri = nil)
       new JSON.parse(str), uri
     end
@@ -11,14 +13,9 @@ module HAR
     attr_reader :uri
 
     def initialize(input, uri = nil)
-      @input = input
+      @data = input
       @uri   = uri
     end
-
-    def ==(other)
-      other.kind_of?(self.class) && @input == other.input
-    end
-    alias_method :eql?, :==
 
     def pages
       @pages ||= raw_log.fetch('pages').map { |page|
@@ -35,10 +32,10 @@ module HAR
     def merge(other)
       assert_archive other
 
-      input = deep_clone(@input)
-      merge_data input, other.input, other.uri
+      data = deep_clone(@data)
+      merge_data data, other.as_json, other.uri
 
-      self.class.new input
+      self.class.new data
     end
 
     # destructively merge this with the given archive
@@ -47,20 +44,20 @@ module HAR
       assert_archive other
       clear_caches
 
-      merge_data @input, other.input, other.uri
+      merge_data @data, other.as_json, other.uri
       nil
     end
 
     def save_to(path)
-      File.open(path, "w") { |io| io << @input.to_json }
+      File.open(path, "w") { |io| io << @data.to_json }
     end
 
     def valid?
-      JSON::Validator.validate schema_file, @input
+      JSON::Validator.validate schema_file, @data
     end
 
     def validate!
-      JSON::Validator.validate2 schema_file, @input
+      JSON::Validator.validate2 schema_file, @data
     rescue JSON::ValidationError => ex
       # add archive uri to the message
       if @uri
@@ -71,10 +68,6 @@ module HAR
     end
 
     protected
-
-    def input
-      @input
-    end
 
     private
 
@@ -126,7 +119,7 @@ module HAR
     end
 
     def raw_log
-      @raw_log ||= @input.fetch 'log'
+      @raw_log ||= @data.fetch 'log'
     end
 
     def entries_map

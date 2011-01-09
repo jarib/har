@@ -1,10 +1,17 @@
 module HAR
   class Page
+    include Serializable
+    include Commentable
+
     attr_reader :entries
 
-    def initialize(data, entries)
-      @data = data
+    def initialize(input, entries)
+      @data = input
       @entries = entries
+    end
+
+    def id
+      @data.fetch('id')
     end
 
     def start_time
@@ -15,22 +22,8 @@ module HAR
       @data.fetch 'title'
     end
 
-    def comment
-      @data['comment'] || ''
-    end
-
-    def on_content_load
-      timings.fetch 'onContentLoad'
-    end
-
-    def on_load
-      timings.fetch 'onLoad'
-    end
-
-    private
-
-    def timings
-      @data.fetch('pageTimings')
+    def page_timings
+      @page_timings ||= PageTimings.new @data.fetch('pageTimings')
     end
   end
 end

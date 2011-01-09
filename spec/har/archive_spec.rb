@@ -9,18 +9,18 @@ module HAR
       end
 
       it "can be created from a file" do
-        Archive.from_file(fixture_path("browser-blocking-time.har")).should be_kind_of(Archive)
+        Archive.from_file(har_path("browser-blocking-time.har")).should be_kind_of(Archive)
       end
 
       it "saves the archive URI if created from a file" do
-        ar = Archive.from_file(fixture_path("browser-blocking-time.har"))
+        ar = Archive.from_file(har_path("browser-blocking-time.har"))
         ar.uri.should_not be_nil
         ar.uri.should include("browser-blocking-time.har")
       end
     end
 
     context "fetching data" do
-      let(:archive) { Archive.from_file fixture_path("browser-blocking-time.har") }
+      let(:archive) { Archive.from_file har_path("browser-blocking-time.har") }
 
       it "has a list of pages" do
         ps = archive.pages
@@ -34,8 +34,8 @@ module HAR
 
     context "comparing" do
       it "knows when two archives are equal" do
-        a = Archive.from_file fixture_path("browser-blocking-time.har")
-        b = Archive.from_file fixture_path("browser-blocking-time.har")
+        a = Archive.from_file har_path("browser-blocking-time.har")
+        b = Archive.from_file har_path("browser-blocking-time.har")
 
         a.should == b
       end
@@ -43,15 +43,15 @@ module HAR
 
     context "merging" do
       it "raises a TypeError if the argument is not an Archive" do
-        a = Archive.from_file fixture_path("browser-blocking-time.har")
+        a = Archive.from_file har_path("browser-blocking-time.har")
 
         lambda { a.merge(1) }.should raise_error(TypeError)
         lambda { a.merge!(1) }.should raise_error(TypeError)
       end
 
       it "merges two archives, returning a new archive" do
-        a = Archive.from_file fixture_path("browser-blocking-time.har")
-        b = Archive.from_file fixture_path("google.com.har")
+        a = Archive.from_file har_path("browser-blocking-time.har")
+        b = Archive.from_file har_path("google.com.har")
 
         c = a.merge b
 
@@ -66,9 +66,9 @@ module HAR
       end
 
       it "merges one archive into the other" do
-        ref = Archive.from_file fixture_path("browser-blocking-time.har")
-        a   = Archive.from_file fixture_path("browser-blocking-time.har")
-        b   = Archive.from_file fixture_path("google.com.har")
+        ref = Archive.from_file har_path("browser-blocking-time.har")
+        a   = Archive.from_file har_path("browser-blocking-time.har")
+        b   = Archive.from_file har_path("google.com.har")
 
         # caching..
         a.pages
@@ -81,8 +81,8 @@ module HAR
       end
 
       it "adds a comment to pages about their origin" do
-        a = Archive.from_file fixture_path("browser-blocking-time.har")
-        b = Archive.from_file fixture_path("google.com.har")
+        a = Archive.from_file har_path("browser-blocking-time.har")
+        b = Archive.from_file har_path("google.com.har")
 
 
         c = a.merge(b)
@@ -93,8 +93,8 @@ module HAR
     end
 
     context "validating" do
-      let(:valid)   { Archive.from_file fixture_path("browser-blocking-time.har") }
-      let(:invalid) { Archive.from_file fixture_path("bad.har") }
+      let(:valid)   { Archive.from_file har_path("browser-blocking-time.har") }
+      let(:invalid) { Archive.from_file har_path("bad.har") }
 
       it "returns true if the archive is valid" do
         valid.should be_valid
