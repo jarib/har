@@ -6,6 +6,14 @@ module HAR
     def fixture_path(name)
       File.join(File.expand_path("../fixtures", __FILE__), name)
     end
+
+    def all_hars
+      Dir[fixture_path("*.har")]
+    end
+
+    def good_hars
+      all_hars.reject { |e| e =~ /bad/ }
+    end
   end
 end
 

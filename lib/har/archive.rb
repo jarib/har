@@ -61,6 +61,13 @@ module HAR
 
     def validate!
       JSON::Validator.validate2 schema_file, @input
+    rescue JSON::ValidationError => ex
+      # add archive uri to the message
+      if @uri
+        raise ValidationError, "#{@uri}: #{ex.message}"
+      else
+        raise ValidationError, ex.message
+      end
     end
 
     protected
