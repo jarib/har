@@ -12,6 +12,7 @@ require 'har/entry'
 require 'har/page_timings'
 require 'har/page'
 require 'har/archive'
+require 'har/viewer'
 
 require 'json'
 require 'json-schema'

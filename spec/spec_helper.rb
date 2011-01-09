@@ -16,7 +16,7 @@ module HAR
     end
 
     def all_hars
-      Dir[fixture_path("*.har")]
+      Dir[fixture_path("hars/*.har")]
     end
 
     def good_hars

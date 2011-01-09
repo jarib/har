@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require "har"
+HAR::Viewer.new(ARGV).show
