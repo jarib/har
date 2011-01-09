@@ -18,7 +18,7 @@ task :schema do
   
   # generate
   schema.each do |type, schema|
-    path = File.join(out, "#{type}.json")
+    path = File.join(out, type)
     puts path
     
     File.open(path, "w") { |file|

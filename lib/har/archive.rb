@@ -62,16 +62,15 @@ module HAR
 
     protected
 
-    def schema_file
-      @schema_file ||= File.expand_path("../schemas/logType.json", __FILE__)
-    end
-
-
     def input
       @input
     end
 
     private
+    
+    def schema_file
+      @schema_file ||= File.expand_path("../schemas/logType", __FILE__)
+    end
 
     def merge_data(left, right)
       log       = left.fetch('log')
