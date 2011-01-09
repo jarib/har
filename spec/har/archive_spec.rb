@@ -109,7 +109,7 @@ module HAR
       end
 
       it "raises an error if the archive is invalid" do
-        lambda { invalid.validate! }.should raise_error(JSON::ValidationError)
+        lambda { invalid.validate! }.should raise_error(ValidationError, /bad\.har/)
       end
     end
 
