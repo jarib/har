@@ -1,5 +1,5 @@
 module HAR
-  # Your code goes here...
+  class Error < StandardError; end
 end
 
 require 'har/version'
