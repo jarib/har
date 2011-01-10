@@ -1,5 +1,6 @@
 require "webrick"
 require "launchy"
+require "optparse"
 
 module HAR
   class Viewer
@@ -21,39 +22,61 @@ module HAR
     private
 
     def archives_from(hars)
-      hars = hars.map { |path| Archive.from_file(path) }
-      hars.each { |h| h.validate! }
+      progress("Validating archives...") {
+        hars = hars.map { |path| Archive.from_file(path) }
+        hars.each { |h| h.validate! } if @options[:validate]
+
+        hars
+      }
     end
 
     def create_root
-      viewer = File.expand_path("../viewer", __FILE__)
-      tmp_dir = Dir.mktmpdir("harviewer")
+      progress("Creating viewer...") {
+        viewer = File.expand_path("../viewer", __FILE__)
+        tmp_dir = Dir.mktmpdir("harviewer")
 
-      at_exit { FileUtils.rm_rf tmp_dir }
-      FileUtils.cp_r viewer, tmp_dir
+        at_exit { FileUtils.rm_rf tmp_dir }
+        FileUtils.cp_r viewer, tmp_dir
 
-      har.save_to File.join(tmp_dir, 'viewer', url_friendly(@har.uri))
+        har.save_to File.join(tmp_dir, 'viewer', url_friendly(@har.uri))
 
-      tmp_dir
+        tmp_dir
+      }
     end
 
     def merge(hars)
-      har = hars.shift or raise Error, "no HARs given"
+      progress("Merging hars...") {
+        har = hars.shift or raise Error, "no HARs given"
 
-      unless hars.empty?
-        hars.each { |h| har.merge! h }
-      end
+        unless hars.empty?
+          hars.each { |h| har.merge! h }
+        end
 
-      har
+        har
+      }
     end
 
     DEFAULT_OPTIONS = {
-      :port => 9292
+      :port     => 9292,
+      :validate => false
     }
 
     def parse(args)
-      # TODO: parse command line
-      DEFAULT_OPTIONS.dup
+      options = DEFAULT_OPTIONS.dup
+
+      OptionParser.new do |opts|
+        opts.banner = "Usage: har [options] [files]"
+        
+        opts.on "-p", "--port PORT", Integer do |int|
+          options[:port] = int
+        end
+
+        opts.on "-v", "--validate" do
+          options[:validate] = true
+        end
+      end.parse!(args)
+
+      options
     end
 
     def url
@@ -74,7 +97,7 @@ module HAR
 
     def server(root)
       Thread.new do
-        puts "Starting HAR Viewer Server..."
+        puts "Starting server..."
         puts "Type ^C to exit\n\n"
 
         server = WEBrick::HTTPServer.new(:Port          => port,
@@ -92,6 +115,14 @@ module HAR
     def launch_browser
       sleep 0.1 until @running
       Launchy.open url
+    end
+
+    def progress(msg, &blk)
+      print msg
+      res = yield
+      puts "done."
+
+      res
     end
 
   end # Viewer
