@@ -7,6 +7,7 @@ module HAR
   class ValidationError < StandardError; end
 end
 
+require 'har/version'
 require 'har/serializable'
 require 'har/schema_type'
 require 'har/page'

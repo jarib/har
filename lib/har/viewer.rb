@@ -74,7 +74,12 @@ module HAR
           options[:port] = int
         end
 
-        opts.on "-v", "--validate" do
+        opts.on "-v", "--version" do
+          puts "har #{HAR::VERSION}"
+          exit
+        end
+
+        opts.on "-w", "--validate" do
           options[:validate] = true
         end
       end.parse!(args)
