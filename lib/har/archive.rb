@@ -10,6 +10,19 @@ module HAR
       from_string File.read(path), path
     end
 
+    def self.by_merging(hars)
+      hars = hars.dup
+
+      result = hars.shift
+      result = from_file(result) unless result.kind_of? self
+
+      hars.each do |har|
+        result.merge! har.kind_of?(self) ? har : from_file(har)
+      end
+
+      result
+    end
+
     attr_reader :uri
 
     def initialize(input, uri = nil)

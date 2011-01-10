@@ -17,6 +17,11 @@ module HAR
         ar.uri.should_not be_nil
         ar.uri.should include("browser-blocking-time")
       end
+
+      it "creates a single archive by merging the given paths" do
+        ar = Archive.by_merging good_hars.first(2)
+        ar.pages.size.should == 3
+      end
     end
 
     context "fetching data" do

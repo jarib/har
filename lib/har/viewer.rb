@@ -10,7 +10,11 @@ module HAR
       @running = false
       @options = parse(args)
 
-      @har = merge archives_from(args)
+      if @options[:validate]
+        args = validate(args)
+      end
+
+      @har = Archive.by_merging(args)
     end
 
     def show
@@ -21,16 +25,13 @@ module HAR
 
     private
 
-    def archives_from(hars)
-      hars = hars.map { |path| Archive.from_file(path) }
+    def validate(hars)
+      progress("Validating archives...") {
+        hars = hars.map { |path| Archive.from_file(path) }
+        hars.each { |h| h.validate! }
 
-      if @options[:validate]
-        progress("Validating archives...") do
-          hars.each { |h| h.validate! }
-        end
-      end
-
-      hars
+        hars
+      }
     end
 
     def create_root
