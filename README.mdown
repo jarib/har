@@ -2,7 +2,7 @@ HAR
 ===
 
 Ruby library to work with and view HTTP archives.
-This includes [harviewer](http://code.google.com/p/harviewer/), which can be launched through the "har" command.
+This includes [harviewer][viewer], which can be launched through the "har" command.
 
 Usage
 =============
@@ -10,14 +10,9 @@ Usage
     HAR::Archive.from_string(json) #=> #<Har::Archive:0x5e7cac>
     HAR::Archive.from_file(path)   #=> #<Har::Archive:0x5e7cac>
 
-Or from command the command line:
+Or launch a local [harviewer][viewer] the command line:
 
     har /path/to/some.har
-
-Links
-=====
-
-* [harviewer](http://code.google.com/p/harviewer/)
 
 Note on Patches/Pull Requests
 =============================
@@ -34,3 +29,5 @@ Copyright
 =========
 
 Copyright (c) 2011 Jari Bakken. See LICENSE for details.
+
+[viewer]: http://code.google.com/p/harviewer/
