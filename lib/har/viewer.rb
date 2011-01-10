@@ -9,8 +9,7 @@ module HAR
       @running = false
       @options = parse(args)
 
-      hars = create_archives args
-      @har = merge hars
+      @har = merge archives_from(args)
     end
 
     def show
@@ -21,7 +20,7 @@ module HAR
 
     private
 
-    def create_archives(hars)
+    def archives_from(hars)
       hars = hars.map { |path| Archive.from_file(path) }
       hars.each { |h| h.validate! }
     end
