@@ -8,10 +8,6 @@ module HAR
       @entries = entries
     end
 
-    def title
-      @data.fetch 'title'
-    end
-
     # a little sugar
     alias_method :timings, :page_timings
 
