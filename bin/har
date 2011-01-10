@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 
 require "har"
-HAR::Viewer.new(ARGV).show
+
+begin
+  HAR::Viewer.new(ARGV).show
+rescue HAR::Error => ex
+  abort "\n\n#{ex.message}"
+end

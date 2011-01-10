@@ -2,11 +2,7 @@ require 'json'
 require 'json-schema'
 require 'time'
 
-module HAR
-  class Error < StandardError; end
-  class ValidationError < StandardError; end
-end
-
+require 'har/error'
 require 'har/version'
 require 'har/serializable'
 require 'har/schema_type'
