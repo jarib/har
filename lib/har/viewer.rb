@@ -22,12 +22,15 @@ module HAR
     private
 
     def archives_from(hars)
-      progress("Validating archives...") {
-        hars = hars.map { |path| Archive.from_file(path) }
-        hars.each { |h| h.validate! } if @options[:validate]
+      hars = hars.map { |path| Archive.from_file(path) }
 
-        hars
-      }
+      if @options[:validate]
+        progress("Validating archives...") do
+          hars.each { |h| h.validate! }
+        end
+      end
+
+      hars
     end
 
     def create_root
@@ -66,7 +69,7 @@ module HAR
 
       OptionParser.new do |opts|
         opts.banner = "Usage: har [options] [files]"
-        
+
         opts.on "-p", "--port PORT", Integer do |int|
           options[:port] = int
         end
