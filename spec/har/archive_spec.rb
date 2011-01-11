@@ -19,7 +19,7 @@ module HAR
       end
 
       it "creates a single archive by merging the given paths" do
-        ar = Archive.by_merging good_hars.first(2)
+        ar = Archive.by_merging [har_path("browser-blocking-time"), har_path("google.com")]
         ar.pages.size.should == 3
       end
     end
