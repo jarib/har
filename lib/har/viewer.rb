@@ -14,7 +14,9 @@ module HAR
         args = validate(args)
       end
 
-      @har = Archive.by_merging(args)
+      progress("Merging HARs...") {
+        @har = Archive.by_merging(args)
+      }
     end
 
     def show
@@ -45,18 +47,6 @@ module HAR
         har.save_to File.join(tmp_dir, 'viewer', url_friendly(@har.uri))
 
         tmp_dir
-      }
-    end
-
-    def merge(hars)
-      progress("Merging hars...") {
-        har = hars.shift or raise Error, "no HARs given"
-
-        unless hars.empty?
-          hars.each { |h| har.merge! h }
-        end
-
-        har
       }
     end
 
