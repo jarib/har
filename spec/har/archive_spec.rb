@@ -22,6 +22,10 @@ module HAR
         ar = Archive.by_merging [har_path("browser-blocking-time"), har_path("google.com")]
         ar.pages.size.should == 3
       end
+
+      it "raises ArgumentError if the given array is empty" do
+        lambda { Archive.by_merging [] }.should raise_error(ArgumentError)
+      end
     end
 
     context "fetching data" do

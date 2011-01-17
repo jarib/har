@@ -13,7 +13,7 @@ module HAR
     def self.by_merging(hars)
       hars = hars.dup
 
-      result = hars.shift
+      result = hars.shift or raise ArgumentError, "no HARs given"
       result = from_file(result) unless result.kind_of? self
 
       hars.each do |har|
