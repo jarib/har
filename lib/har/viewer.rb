@@ -14,9 +14,15 @@ module HAR
         args = validate(args)
       end
 
-      progress("Merging HARs...") {
-        @har = Archive.by_merging(args)
-      }
+      if args == ["-"]
+        progress("Reading HAR from stdin...") {
+          @har = Archive.from_file $stdin
+        }
+      else
+        progress("Merging HARs...") {
+          @har = Archive.by_merging args
+        }
+      end
     end
 
     def show
@@ -59,7 +65,7 @@ module HAR
       options = DEFAULT_OPTIONS.dup
 
       OptionParser.new do |opts|
-        opts.banner = "Usage: har [options] [files]"
+        opts.banner = "Usage: har [options] [files|-]"
 
         opts.on "-p", "--port PORT", Integer do |int|
           options[:port] = int

@@ -3,6 +3,7 @@
 require "har"
 
 begin
+  ARGV << "-" if ARGV.empty?
   HAR::Viewer.new(ARGV).show
 rescue HAR::Error => ex
   abort "\n\n#{ex.message}"

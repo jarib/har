@@ -6,8 +6,19 @@ module HAR
       new JSON.parse(str), uri
     end
 
-    def self.from_file(path)
-      from_string File.read(path), path
+    def self.from_file(path_or_io)
+      case path_or_io
+      when String
+        from_string File.read(path_or_io), path_or_io
+      when IO
+        from_string path_or_io.read, path_or_io.to_s
+      else
+        unless path_or_io.respond_to?(:to_io)
+          raise TypeError, "expected String, IO or #to_io"
+        end
+
+        from_file path_or_io.to_io
+      end
     end
 
     def self.by_merging(hars)

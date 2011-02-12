@@ -12,6 +12,12 @@ module HAR
         Archive.from_file(har_path("browser-blocking-time")).should be_kind_of(Archive)
       end
 
+      it "can be created from an IO" do
+        File.open(har_path("browser-blocking-time"), "r") do |io|
+          Archive.from_file(io).should be_kind_of(Archive)
+        end
+      end
+
       it "saves the archive URI if created from a file" do
         ar = Archive.from_file(har_path("browser-blocking-time"))
         ar.uri.should_not be_nil
