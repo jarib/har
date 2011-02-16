@@ -10,7 +10,7 @@ module HAR
       @running = false
       @options = parse(args)
 
-      if args == ["-"]
+      if args == ["-"] || args.empty?
         progress("Reading HAR from stdin...") {
           @har = Archive.from_file $stdin
         }
