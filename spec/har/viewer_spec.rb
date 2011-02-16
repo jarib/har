@@ -7,8 +7,8 @@ module HAR
       it "has sensible defaults" do
         v = Viewer.new([google_path])
 
-        v.options[:port] == 1234
-        v.options[:validate] == true
+        v.options[:port].should == 9292
+        v.options[:validate].should be_false
       end
 
       it "parses the port option" do
