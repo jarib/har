@@ -10,17 +10,17 @@ module HAR
       @running = false
       @options = parse(args)
 
-      if @options[:validate]
-        args = validate(args)
-      end
-
       if args == ["-"]
         progress("Reading HAR from stdin...") {
           @har = Archive.from_file $stdin
         }
+
+        validate_if_needed @har
       else
+        hars = validate_if_needed(args)
+
         progress("Merging HARs...") {
-          @har = Archive.by_merging args
+          @har = Archive.by_merging hars
         }
       end
     end
@@ -33,12 +33,16 @@ module HAR
 
     private
 
-    def validate(hars)
-      progress("Validating archives...") {
-        hars = hars.map { |path| Archive.from_file(path) }
-        hars.each { |h| h.validate! }
+    def validate_if_needed(hars)
+      return hars unless @options[:validate]
 
-        hars
+      progress("Validating archives...") {
+        Array(hars).map { |har|
+          har = har.kind_of?(Archive) ? har : Archive.from_file(har)
+          har.validate!
+
+          har
+        }
       }
     end
 

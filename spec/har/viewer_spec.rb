@@ -26,6 +26,12 @@ module HAR
       lambda { Viewer.new(["--validate", *all_hars]) }.should raise_error(ValidationError)
     end
 
+    it "validates HARs read from stdin if asked to" do
+      with_stdin_replaced_by(har_path("bad")) do
+        lambda { Viewer.new(["--validate", "-"]) }.should raise_error(ValidationError)
+      end
+    end
+
     it "has a merged archive" do
       Viewer.new(good_hars).har.should be_kind_of(Archive)
     end

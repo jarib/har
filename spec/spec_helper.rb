@@ -34,6 +34,18 @@ module HAR
     def good_hars
       all_hars.reject { |e| e =~ /bad/ }
     end
+
+    def with_stdin_replaced_by(file_path)
+      stdin = $stdin
+      begin
+        File.open(file_path, "r") { |io|
+          $stdin = io
+          yield
+        }
+      ensure
+        $stdin = stdin
+      end
+    end
   end
 end
 
