@@ -26,3 +26,5 @@ task :schema do
     }
   end
 end
+
+task :default => :spec
