@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "json"
   s.add_dependency "json-schema", "= 0.1.12"
-  s.add_dependency "launchy"
+  s.add_dependency "launchy", ">= 0.3.7"
 
   s.add_development_dependency "rspec", "~> 2.0"
   s.add_development_dependency "simplecov"
