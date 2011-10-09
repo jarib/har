@@ -41,6 +41,10 @@ module HAR
       @uri   = uri
     end
 
+    def view
+      Viewer.new([self]).show
+    end
+
     def pages
       @pages ||= raw_log.fetch('pages').map { |page|
         Page.new page, entries_for(page['id'])

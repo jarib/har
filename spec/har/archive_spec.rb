@@ -141,5 +141,16 @@ module HAR
       end
     end
 
+    context "viewing" do
+      let(:archive) { Archive.from_file har_path("browser-blocking-time") }
+      let(:viewer)  { mock(Viewer) }
+      it "launches the viewer" do
+        Viewer.should_receive(:new).with([archive]).and_return viewer
+        viewer.should_receive(:show)
+
+        archive.view
+      end
+    end
+
   end # Archive
 end # HAR
