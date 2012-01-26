@@ -4,8 +4,13 @@ HAR
 Ruby library to work with and view HTTP archives.
 This includes [harviewer][viewer], which can be launched through the "har" command.
 
+Install
+=======
+
+    gem install har
+
 Usage
-=============
+=====
 
     HAR::Archive.from_string(json) #=> #<Har::Archive:0x5e7cac>
     HAR::Archive.from_file(path)   #=> #<Har::Archive:0x5e7cac>
