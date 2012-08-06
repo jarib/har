@@ -7,7 +7,8 @@ if ENV['COVERAGE']
 end
 
 $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
-require "har"
+require 'har'
+require 'pry'
 
 module HAR
   module SpecHelper

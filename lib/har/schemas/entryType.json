@@ -1,7 +1,6 @@
 {
   "id": "entryType",
   "description": "Request and Response related info",
-  "optional": true,
   "properties": {
     "pageref": {
       "type": "string"
@@ -14,7 +13,7 @@
     },
     "time": {
       "type": "integer",
-      "min": 0,
+      "minimum": 0,
       "required": true
     },
     "request": {

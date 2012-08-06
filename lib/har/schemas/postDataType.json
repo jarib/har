@@ -1,7 +1,6 @@
 {
   "id": "postDataType",
   "description": "Posted data info.",
-  "optional": true,
   "properties": {
     "mimeType": {
       "type": "string",

@@ -1,6 +1,5 @@
 {
   "id": "cacheEntryType",
-  "optional": true,
   "description": "Info about cache entry.",
   "properties": {
     "expires": {

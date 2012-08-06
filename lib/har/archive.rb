@@ -34,6 +34,23 @@ module HAR
       result
     end
 
+    # @api private
+    def self.schemas
+      @schemas ||= {}
+    end
+
+    # @api private
+    def self.add_schema(path)
+      data = JSON.parse(File.read(path))
+      id = data.fetch('id')
+
+      schemas[id] = data
+    end
+
+    Dir[File.expand_path("../schemas/*.json", __FILE__)].each do |path|
+      add_schema path
+    end
+
     attr_reader :uri
 
     def initialize(input, uri = nil)
@@ -81,26 +98,23 @@ module HAR
     end
 
     def valid?
-      JSON::Validator.validate schema_file, @data
+      Jschematic.validate @data, log_type_schema, :debug => true, :context => self.class.schemas.values
     end
 
     def validate!
-      JSON::Validator.validate2 schema_file, @data
-    rescue JSON::ValidationError => ex
-      # add archive uri to the message
-      if @uri
-        raise ValidationError, "#{@uri}: #{ex.message}"
-      else
-        raise ValidationError, ex.message
-      end
-    end
+      Jschematic.validate! @data, log_type_schema, :debug => true, :context => self.class.schemas.values
+      nil
+    rescue Jschematic::ValidationError => ex
+      msg = ex.message
+      msg = "#{@uri}: #{msg}" if @uri
 
-    protected
+      raise ValidationError, msg
+    end
 
     private
 
-    def schema_file
-      @schema_file ||= File.expand_path("../schemas/logType", __FILE__)
+    def log_type_schema
+      @schema ||= self.class.schemas.fetch('logType')
     end
 
     def merge_data(left, right, uri)
@@ -160,4 +174,3 @@ module HAR
 
   end # Archive
 end # HAR
-

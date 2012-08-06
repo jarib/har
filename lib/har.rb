@@ -1,5 +1,5 @@
 require 'json'
-require 'json-schema'
+require 'jschematic'
 require 'time'
 
 require 'har/error'
@@ -9,6 +9,8 @@ require 'har/schema_type'
 require 'har/page'
 require 'har/archive'
 require 'har/viewer'
+require 'har/extensions/jschematic/attributes/format'
+
 
 module Enumerable
   def group_by
