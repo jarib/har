@@ -52,6 +52,20 @@ module HAR
 
         ps.first.should be_kind_of(Page)
       end
+
+      it 'has a creator' do
+        creator = archive.creator
+        creator.should be_kind_of(Hash)
+        creator.fetch('name').should be_kind_of(String)
+        creator.fetch('version').should be_kind_of(String)
+      end
+
+      it 'has a browser' do
+        browser = archive.browser
+        browser.should be_kind_of(Hash)
+        browser.fetch('name').should be_kind_of(String)
+        browser.fetch('version').should be_kind_of(String)
+      end
     end
 
     context "comparing" do

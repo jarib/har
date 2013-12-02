@@ -77,6 +77,14 @@ module HAR
       @entries ||= raw_entries.map { |e| Entry.new(e) }
     end
 
+    def creator
+      @creator ||= raw_log.fetch('creator')
+    end
+
+    def browser
+      @browser ||= raw_log.fetch('browser')
+    end
+
     # create a new archive by merging this and another archive
 
     def merge(other)
