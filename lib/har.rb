@@ -1,6 +1,7 @@
 require 'json'
 require 'jschematic'
 require 'time'
+require 'httparty'
 
 require 'har/error'
 require 'har/version'

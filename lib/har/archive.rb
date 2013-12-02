@@ -2,6 +2,11 @@ module HAR
   class Archive
     include Serializable
 
+    def self.from_url(url, options={})
+      options = {:headers => {'Content-Type' => 'application/json'}}.merge(options)
+      new JSON.parse(HTTParty.get(url, options).chomp(")").gsub("onInputData(", ""))
+    end
+
     def self.from_string(str, uri = nil)
       new JSON.parse(str), uri
     end

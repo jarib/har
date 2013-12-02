@@ -4,6 +4,13 @@ module HAR
   describe Archive do
 
     context "creating archives" do
+      it "can be created from a URL" do
+        VCR.use_cassette 'har/archive' do
+          ar = Archive.from_url(har_url_path('google.com.har'), :headers => {'Content-Type' => 'text/plain'})
+          ar.should be_kind_of(Archive)
+        end
+      end
+
       it "can be created from a String" do
         Archive.from_string('{"log": {}}').should be_kind_of(Archive)
       end

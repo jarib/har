@@ -6,6 +6,12 @@ if ENV['COVERAGE']
   }
 end
 
+require 'webmock/rspec'
+require 'vcr'
+
+# Requires supporting ruby files in spec/support/ and its subdirectories.
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
 $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
 require 'har'
 require 'pry'
@@ -46,6 +52,11 @@ module HAR
       ensure
         $stdin = stdin
       end
+    end
+
+    def har_url_path(name)
+      # use files from github for URL testing
+      "https://raw.github.com/Rigor/har/master/spec/fixtures/hars/#{name}"
     end
   end
 end
