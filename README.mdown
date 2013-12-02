@@ -1,6 +1,5 @@
-HAR
+HAR [![Build Status](https://travis-ci.org/Rigor/har.png?branch=master)](https://travis-ci.org/Rigor/har)
 ===
-
 Ruby library to work with and view HTTP archives.
 This includes [harviewer][viewer], which can be launched through the "har" command.
 
