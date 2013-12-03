@@ -47,6 +47,12 @@ module HAR
           stats.send("#{metric}_count").should be_an(Integer)
         end
       end
+
+      it 'has timing metrics' do
+        [:dns_time, :connect_time, :blocked_time, :wait_time, :receive_time, :send_time].each do |metric|
+          stats.send(metric).should be_an(Integer)
+        end
+      end
     end
   end
 end

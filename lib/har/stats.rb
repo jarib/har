@@ -73,8 +73,8 @@ module HAR
       define_method("#{content_type}_files_size".to_sym) { sum_file_size_of_type(content_type) }
     end
 
-    [:dns, :connect, :wait, :blocked, :send, :receive].each do |timing|
-      define_method("#{timing}_time".to_sym) { sum_timings_of_type(timings) }
+    [:dns, :connect, :wait, :blocked, :send, :receive].each do |timing_type|
+      define_method("#{timing_type}_time".to_sym) { sum_timings_of_type(timing_type) }
     end
 
     protected
