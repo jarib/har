@@ -26,6 +26,10 @@ module HAR
       @domain ||= get_host(source_url)
     end
 
+    def entries_count
+      @entries_count ||= entries.count
+    end
+
     def server_time
       @server_time ||= calculate_server_time
     end
