@@ -77,6 +77,14 @@ module HAR
       @entries ||= raw_entries.map { |e| Entry.new(e) }
     end
 
+    def request_urls
+      entries.map(&:request).map(&:url)
+    end
+
+    def domains
+      entries.map(&:request).map(&:url)
+    end
+
     def creator
       @creator ||= raw_log.fetch('creator')
     end

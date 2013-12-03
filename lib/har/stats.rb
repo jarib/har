@@ -26,6 +26,14 @@ module HAR
       @domain ||= get_host(source_url)
     end
 
+    def request_urls
+      @request_urls ||= requests.map(&:url)
+    end
+
+    def domains
+      @domains ||= requests.map(&:domain).uniq
+    end
+
     def entries_count
       @entries_count ||= entries.count
     end
