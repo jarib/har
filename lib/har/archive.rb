@@ -85,6 +85,10 @@ module HAR
       @browser ||= raw_log.fetch('browser')
     end
 
+    def stats
+      @stats ||= HAR::Stats.new(self)
+    end
+
     # create a new archive by merging this and another archive
 
     def merge(other)
