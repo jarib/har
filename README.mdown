@@ -1,4 +1,4 @@
-HAR [![Build Status](https://travis-ci.org/Rigor/har.png?branch=master)](https://travis-ci.org/Rigor/har)
+HAR [![Build Status](https://travis-ci.org/Rigor/har.png?branch=master)](https://travis-ci.org/Rigor/har) [![Coverage Status](https://coveralls.io/repos/Rigor/har/badge.png?branch=master)](https://coveralls.io/r/Rigor/har?branch=master)
 ===
 Ruby library to work with and view HTTP archives.
 This includes [harviewer][viewer], which can be launched through the "har" command.
