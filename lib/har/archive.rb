@@ -2,6 +2,11 @@ module HAR
   class Archive
     include Serializable
 
+    def self.from_url(url, options={})
+      options = {:headers => {'Content-Type' => 'application/json'}}.merge(options)
+      new JSON.parse(HTTParty.get(url, options).chomp(")").gsub("onInputData(", ""))
+    end
+
     def self.from_string(str, uri = nil)
       new JSON.parse(str), uri
     end
@@ -70,6 +75,26 @@ module HAR
 
     def entries
       @entries ||= raw_entries.map { |e| Entry.new(e) }
+    end
+
+    def request_urls
+      entries.map(&:request).map(&:url)
+    end
+
+    def domains
+      entries.map(&:request).map(&:url)
+    end
+
+    def creator
+      @creator ||= raw_log.fetch('creator')
+    end
+
+    def browser
+      @browser ||= raw_log.fetch('browser')
+    end
+
+    def stats
+      @stats ||= HAR::Stats.new(self)
     end
 
     # create a new archive by merging this and another archive
