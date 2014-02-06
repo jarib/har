@@ -4,6 +4,7 @@ HAR
 Ruby library to work with and view HTTP archives.
 This includes [harviewer][viewer], which can be launched through the "har" command.
 
+[![Coverage Status](https://coveralls.io/repos/jarib/har/badge.png)](https://coveralls.io/r/jarib/har)
 [![Code Climate](https://codeclimate.com/github/jarib/har.png)](https://codeclimate.com/github/jarib/har)
 [![Build Status](https://travis-ci.org/jarib/har.png?branch=master)](https://travis-ci.org/jarib/har)
 
