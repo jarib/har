@@ -1,0 +1,177 @@
+Author: Jan Odvarko, odvarko@gmail.com, http://www.softwareishard.com/
+Home page: http://www.janodvarko.cz/har/viewer
+Issue list: http://code.google.com/p/harviewer/issues/list
+Project home: http://code.google.com/p/harviewer/
+---------------------------------------------------------------------------------------------------
+
+HAR Viewer 2.0.17
+-----------------
+Contributors:
+* gitgrimbo (https://github.com/gitgrimbo)
+* David Bengoa (https://github.com/Youwotma)
+* Matt DeMoss (https://github.com/mdemoss)
+* Rodrigo López Dato (https://github.com/rolodato)
+
+Fixed issues:
+* Remove duplicate assertion #18
+* Port tests to Intern #20
+* Charset in MIME type causes content preview to fail #22
+* Use feature detection for text selection rather than IE userAgent test #25
+* Race condition when using the same callback name and jQuery JSONP #28
+* Test stability #29
+* Upgrade to Requirejs 2 and jQuery 2 #30
+* Support inputURL via hash fragment in addition to query string #32
+* Lib.getPrettyDomain now avoids data URIs. Also placed a limit in case… #34
+* String.prototype.startsWith absent in IE #36
+* Update Intern from 2.2.2 to 3.0.0 and some test tidyup #37
+* Upgrade jsdoc #38
+* GET params values get dropped from URL #39
+* GET params values get dropped from URL #40
+* Fix checkbox handling - replace jQ attr with prop #45
+* HAR Viewer redeclares functions; not ES6 compatible #50
+* Rename pageStats to harStats so uBlock doesn't block it #53
+
+HAR Viewer 2.0.16
+-----------------
+Contributors:
+* James Pickering (https://github.com/jamespic)
+
+Fixed issue:
+* Issue 90: errors with google chrome har file. It should show the latency.
+* Issue 73: Entries are not sorted in Chrome
+
+HAR Viewer 2.0.15
+-----------------
+
+* Search in HAR based on JSON Query
+* Displaying search results using table layout
+* Issue 63: API to set the visible columns without using an HTTP cookie
+* Issue 64: Single-page waterfalls aren't expanded in the preview
+* Issue 65: Can use the web based preview to view this file, but not the embed
+* Issue 66: HAR viewer should recognize gif as an image.
+* Validation extended (negative timings not allowed and summary of timings must be correct)
+* Only *.har can be dropped onto the page.
+
+HAR Viewer 2.0.14
+-----------------
+* Issue 59: Reduce columns in waterfall chart
+* Issue 61: Search in HAR
+
+HAR Viewer 2.0.13
+-----------------
+* Issue 24: blocked in between connect and wait
+* Issue 55: harViewer in IE8 shows timing bars squeezed
+* Issue 58: Embedding HAR previews on pages
+
+HAR Viewer 2.0.12
+-----------------
+* Issue 53: Simple API for loading HAR files.
+* Issue 57: Online HAR viewer does no longer show the graph
+
+HAR Viewer 2.0.11
+-----------------
+* Issue 31: Visual separator between two phases in the waterfal graph.
+* Issue 46: Patch: Fix CSS warnings
+* Issue 47: Patch: Sprite the expand/collapse icon
+* Issue 48: Patch: add events to the Preview application as well
+* Issue 49: Patch: allow multiple HAR files to be loaded via inputUrl
+* Issue 51: Support for console.timeStamp() introduced in Firebug 1.8b3
+
+HAR Viewer 2.0.10
+-----------------
+* See: http://code.google.com/p/harviewer/wiki/ReleaseNotes
+
+HAR Viewer 2.0.9
+----------------
+* Update to RequireJS 0.24.0
+* Resizeable HTML preview
+* Better tooltips for unknown size
+* Disable phase-break in the UI by setting phaseInterval to zero or less
+
+Issue 45: Properly handle data:text URLs
+
+
+HAR Viewer 2.0.8
+----------------
+Issue 34: Feature request: make tabs go away?
+Issue 35: Feature request: arbirtary vertical lines
+Issue 36: API enhancement: make pies and timeline chart show onload
+Issue 38: Enhancment: add ability to hide/show downloaddify icon
+Issue 40: Patch: Build failure on linux system (aboutTab.html)
+Issue 41: Build system feature request: use build.sh automatically on *nix systems?
+Issue 42: Patch: Control click to view resource in new window
+
+New API, doc updated:
+http://code.google.com/p/harviewer/wiki/API
+
+HAR Viewer 2.0.6
+----------------
+Bug Fixes:
+Issue 25: Printing prints one page only
+Issue 29: Downloadify icon disappears
+Issue 30: connect, dns, blocked should be optional
+Issue 32: unused placeholder
+
+HAR Viewer 2.0
+==============
+* Significant refactoring of the source code (all modularized now).
+* Include RequireJS (requirejs.org) to support asynchronous modules.
+* Stop using Dojo and include jQuery instead
+* Support for localization.
+* Support for print (from the browser)
+* Generating JSDoc from source code comments.
+* Fix HAR input validation according to the HAR schema.
+* Remember the validation option (the Home tab) in a cookie.
+* Context menu for individual requests
+  - Break timeline layout
+  - Open Request in New Window
+  - Open Response in New Window.
+
+HAR Viewer 1.1-13
+-----------------
+Issue 23: start time of subsequent entry not displayed correctly ?
+
+
+HAR Viewer 1.1-12
+-----------------
+Issue 22: Timing bars disproportional
+
+
+HAR Viewer 1.1-11
+-----------------
+Issue 20: pageTimings without onLoad or with onLoad equals -1
+
+
+HAR Viewer 1.1-10
+-----------------
+Issue 16: Content-Type with charset issue
+Issue 17: Infotip with neg. timings show up
+Issue 18: Typo in har.tab.preview.js "pageSstartedDateTime"
+Issue 19: PAGES are optional
+
+
+HAR Viewer 1.1-9
+----------------
+
+== Refactoring ==
+
+- Source files use different underlying structure.
+  lib: directory for JS and PHP files.
+  images: contains even CSS files.
+- Deploy process doesn't use XSLT anymore. Different includes
+- Selenium tests (PHPUnit), see: selenium/readme.txt
+- New global.php file used as a configuration file.
+- Customization of Google Analytics (using config.php and ant.properties)
+
+== Bug Fixes ==
+Issue 1: Flash content not reported
+Issue 3: HEAD request shows an error
+Issue 4: KB total is wrong
+Issue 7: No Images in Summary of Content Types
+Issue 8: ant build fails because Windows specific path locations in build.xml
+Issue 9: [Patch] Fix undefined error when no text is passed in
+Issue 10: Add addtional Installation requirement information
+Issue 11: xslt Processing markup and rendering issues
+Issue 12: Remove or add config flag for Google Analytics
+Issue 13: [Patch] Fix IE syntax error
+Issue 15: forgot to add global.php in r109
