@@ -15,8 +15,7 @@
           "required": true
         },
         "browser": {
-          "$ref": "browserType",
-          "required": true
+          "$ref": "browserType"
         },
         "pages": {
           "type": "array",
