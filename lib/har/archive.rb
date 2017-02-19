@@ -9,7 +9,7 @@ module HAR
     def self.from_file(path_or_io)
       case path_or_io
       when String
-        from_string File.read(path_or_io), path_or_io
+        from_string File.read(path_or_io, :encoding => 'utf-8'), path_or_io
       when IO
         from_string path_or_io.read, path_or_io.to_s
       else
