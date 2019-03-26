@@ -18,7 +18,20 @@ module HAR
       it "has a PageTimings instance" do
         page.timings.should be_kind_of(PageTimings)
       end
-    end
 
+      describe "#entries_before" do
+        it "requires a DateTime" do
+          expect { page.entries_before("a string") }.to raise_error(TypeError)
+        end
+
+        it "filters entries that responded before the specified time" do
+          time = page.started_date_time + 0.250
+          entries = page.entries_before(time)
+          entries.each do |entry|
+            (entry.started_date_time + entry.time / 1000.to_f).should < time
+          end
+        end
+      end
+    end
   end # Page
 end # HAR
