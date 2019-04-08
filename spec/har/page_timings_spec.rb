@@ -5,7 +5,7 @@ module HAR
     let(:timings) { Archive.from_file(google_path).pages.first.timings }
 
     it "defines methods for custom timings" do
-      timings._custom_example.should == 123
+      timings.custom.customExample.should == 123
     end
   end # PageTimings
 end # HAR
