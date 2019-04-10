@@ -76,7 +76,7 @@ module HAR
       raise TypeError, "expected Time" unless time.is_a?(Time)
       entries.select do |entry|
         return false unless entry.time
-        entry.started_date_time + entry.time / 1000.0 < time
+        entry.started_date_time + entry.time / 1000.0 <= time
       end
     end
 
