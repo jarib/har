@@ -30,6 +30,8 @@ module HAR
           entries.each do |entry|
             (entry.started_date_time + entry.time / 1000.to_f).should < time
           end
+
+          entries.length.should < page.entries.length
         end
       end
     end
