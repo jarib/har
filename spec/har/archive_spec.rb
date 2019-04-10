@@ -152,5 +152,22 @@ module HAR
       end
     end
 
+    describe "#entries_before" do
+      let(:archive) { Archive.from_file(google_path) }
+
+      it "requires a DateTime" do
+        expect { archive.entries_before("a string") }.to raise_error(TypeError)
+      end
+
+      it "filters entries that responded before the specified time" do
+        time = archive.pages.first.started_date_time + 0.250
+        entries = archive.entries_before(time)
+        entries.each do |entry|
+          (entry.started_date_time + entry.time / 1000.to_f).should < time
+        end
+
+        entries.length.should < archive.entries.length
+      end
+    end
   end # Archive
 end # HAR
